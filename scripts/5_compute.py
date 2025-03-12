@@ -30,6 +30,7 @@ for name, calctype in product(names, calctypes):
         structure=struct,
         model={"method": "gfnff"},
         keywords={
+            "threads": 16,
             "calculation": {
                 "level": [{"alpb": "ch2cl2"}],
             },

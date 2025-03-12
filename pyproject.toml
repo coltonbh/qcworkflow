@@ -5,8 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "chemcloud>=0.13.2",
+    "chemcloud>=0.15.0",
     "jupyterlab>=4.3.5",
+    "pandas>=2.2.3",
+    "plotly>=6.0.0",
     "qcio[all]>=0.13.1",
     "qcop>=0.9.6",
 ]

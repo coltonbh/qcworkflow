@@ -46,8 +46,15 @@ for name, calctype in product(names, calctypes):
     prog_inputs.append(prog_input)
 
 # Run the calculations in parallel
-prog_outputs = compute(program, prog_inputs)
+# output = compute(program, prog_inputs)
 
-# Save the results to data/calcs
-for prog_output in prog_outputs:
-    prog_output.save(prog_output.input_data.extras["save_path"])
+future = compute(program, prog_inputs, return_future=True)
+future.save("myfuture.json")
+# # Save the results to data/calcs
+# for prog_output in prog_outputs:
+#     prog_output.save(prog_output.input_data.extras["save_path"])
+
+#OTHER FILE
+future = future.open("myfuture.json")
+for output in future.as_completed():
+    output.save(output.input_data.extras["save_path"])
